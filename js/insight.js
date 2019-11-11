@@ -10,12 +10,12 @@
     $main.parent().remove('.ins-search');
     $('body').append($main);
 
-    function section (title) {
+    function section(title) {
         return $('<section>').addClass('ins-section')
             .append($('<header>').addClass('ins-section-header').text(title));
     }
 
-    function searchItem (icon, title, slug, preview, url) {
+    function searchItem(icon, title, slug, preview, url) {
         return $('<div>').addClass('ins-selectable').addClass('ins-search-item')
             .append($('<header>').append($('<i>').addClass('fa').addClass('fa-' + icon))
                 .append($('<span>').addClass('ins-title').text(title != null && title !== '' ? title : CONFIG.TRANSLATION['UNTITLED']))
@@ -24,10 +24,15 @@
             .attr('data-url', url);
     }
 
-    function sectionFactory (type, array) {
+    function sectionFactory(type, array) {
         var sectionTitle;
         var $searchItems;
         if (array.length === 0) return null;
+
+        let a = array.filter(function (item) {
+            return item.hasOwnProperty('title')
+        })
+        if (a.length === 0) return null;
         sectionTitle = CONFIG.TRANSLATION[type];
         switch (type) {
             case 'POSTS':
@@ -49,7 +54,7 @@
         return section(sectionTitle).append($searchItems);
     }
 
-    function parseKeywords (keywords) {
+    function parseKeywords(keywords) {
         return keywords.split(' ').filter(function (keyword) {
             return !!keyword;
         }).map(function (keyword) {
@@ -62,7 +67,7 @@
      * @param Object            obj     Object to be weighted
      * @param Array<String>     fields  Object's fields to find matches
      */
-    function filter (keywords, obj, fields) {
+    function filter(keywords, obj, fields) {
         var keywordArray = parseKeywords(keywords);
         var containKeywords = keywordArray.filter(function (keyword) {
             var containFields = fields.filter(function (field) {
@@ -78,7 +83,7 @@
         return containKeywords.length === keywordArray.length;
     }
 
-    function filterFactory (keywords) {
+    function filterFactory(keywords) {
         return {
             POST: function (obj) {
                 return filter(keywords, obj, ['title', 'text']);
@@ -101,7 +106,7 @@
      * @param Array<String>     fields  Object's fields to find matches
      * @param Array<Integer>    weights Weight of every field
      */
-    function weight (keywords, obj, fields, weights) {
+    function weight(keywords, obj, fields, weights) {
         var value = 0;
         parseKeywords(keywords).forEach(function (keyword) {
             var pattern = new RegExp(keyword, 'img'); // Global, Multi-line, Case-insensitive
@@ -115,7 +120,7 @@
         return value;
     }
 
-    function weightFactory (keywords) {
+    function weightFactory(keywords) {
         return {
             POST: function (obj) {
                 return weight(keywords, obj, ['title', 'text'], [3, 1]);
@@ -132,7 +137,7 @@
         };
     }
 
-    function search (json, keywords) {
+    function search(json, keywords) {
         var WEIGHTS = weightFactory(keywords);
         var FILTERS = filterFactory(keywords);
         var posts = json.posts;
@@ -140,21 +145,29 @@
         var tags = json.tags;
         var categories = json.categories;
         return {
-            posts: posts.filter(FILTERS.POST).sort(function (a, b) { return WEIGHTS.POST(b) - WEIGHTS.POST(a); }).slice(0, 5),
-            pages: pages.filter(FILTERS.PAGE).sort(function (a, b) { return WEIGHTS.PAGE(b) - WEIGHTS.PAGE(a); }).slice(0, 5),
-            categories: categories.filter(FILTERS.CATEGORY).sort(function (a, b) { return WEIGHTS.CATEGORY(b) - WEIGHTS.CATEGORY(a); }).slice(0, 5),
-            tags: tags.filter(FILTERS.TAG).sort(function (a, b) { return WEIGHTS.TAG(b) - WEIGHTS.TAG(a); }).slice(0, 5)
+            posts: posts.filter(FILTERS.POST).sort(function (a, b) {
+                return WEIGHTS.POST(b) - WEIGHTS.POST(a);
+            }).slice(0, 5),
+            pages: pages.filter(FILTERS.PAGE).sort(function (a, b) {
+                return WEIGHTS.PAGE(b) - WEIGHTS.PAGE(a);
+            }).slice(0, 5),
+            categories: categories.filter(FILTERS.CATEGORY).sort(function (a, b) {
+                return WEIGHTS.CATEGORY(b) - WEIGHTS.CATEGORY(a);
+            }).slice(0, 5),
+            tags: tags.filter(FILTERS.TAG).sort(function (a, b) {
+                return WEIGHTS.TAG(b) - WEIGHTS.TAG(a);
+            }).slice(0, 5)
         };
     }
 
-    function searchResultToDOM (searchResult) {
+    function searchResultToDOM(searchResult) {
         $container.empty();
         for (var key in searchResult) {
             $container.append(sectionFactory(key.toUpperCase(), searchResult[key]));
         }
     }
 
-    function scrollTo ($item) {
+    function scrollTo($item) {
         if ($item.length === 0) return;
         var wrapperHeight = $wrapper[0].clientHeight;
         var itemTop = $item.position().top - $wrapper.scrollTop();
@@ -167,7 +180,7 @@
         }
     }
 
-    function selectItemByDiff (value) {
+    function selectItemByDiff(value) {
         var $items = $.makeArray($container.find('.ins-selectable'));
         var prevPosition = -1;
         $items.forEach(function (item, index) {
@@ -182,7 +195,7 @@
         scrollTo($($items[nextPosition]));
     }
 
-    function gotoLink ($item) {
+    function gotoLink($item) {
         if ($item && $item.length) {
             location.href = $item.attr('data-url');
         }
@@ -214,7 +227,7 @@
             return;
         }
         $('.navbar-main').css('pointer-events', 'none');
-        setTimeout(function(){
+        setTimeout(function () {
             $('.navbar-main').css('pointer-events', 'auto');
         }, 400);
         $main.removeClass('show');
@@ -223,13 +236,17 @@
         if (!$main.hasClass('show')) return;
         switch (e.keyCode) {
             case 27: // ESC
-                $main.removeClass('show'); break;
+                $main.removeClass('show');
+                break;
             case 38: // UP
-                selectItemByDiff(-1); break;
+                selectItemByDiff(-1);
+                break;
             case 40: // DOWN
-                selectItemByDiff(1); break;
+                selectItemByDiff(1);
+                break;
             case 13: //ENTER
-                gotoLink($container.find('.ins-selectable.active').eq(0)); break;
+                gotoLink($container.find('.ins-selectable.active').eq(0));
+                break;
         }
     }).on('touchstart', function (e) {
         touch = true;

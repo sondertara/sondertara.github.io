@@ -128,6 +128,53 @@
     
 <div class="card">
     
+    <div class="card-content article ">
+        
+            <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <time class="level-item has-text-grey"
+                          datetime="2019-11-11T07:52:19.000Z">2019-11-11</time>
+                    
+                    
+                        <span class="level-item has-text-grey">
+                            
+                            
+                            1 分钟 读完 (大约 137 个字)
+                </span>
+                    
+                    
+                </div>
+            </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter"
+                   href="/2019/11/11/test/">test</a>
+            
+        </h1>
+        <div class="content">
+            <p>this is a test</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">public interface InsuranceSendMqHelperSettlementService &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 创建时增加相关字段</span><br><span class="line">     *</span><br><span class="line">     * @param insurancePolicyDTO</span><br><span class="line">     * @param insurancePolicyDO</span><br><span class="line">     * @param insurancePolicyRecordDO</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    InsurancePolicyDTO setInsurancePolicyDTOWhenCreate(InsurancePolicyDTO insurancePolicyDTO, InsurancePolicyDO insurancePolicyDO, InsurancePolicyRecordDO insurancePolicyRecordDO);</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 加保时增加相关字段</span><br><span class="line">     *</span><br><span class="line">     * @param insurancePolicyDTO</span><br><span class="line">     * @param insurancePolicyAddRecordDO</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    InsurancePolicyDTO setInsurancePolicyDTOWhenAdd(InsurancePolicyDTO insurancePolicyDTO, InsurancePolicyAddRecordDO insurancePolicyAddRecordDO);</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 批单时增加相关字段</span><br><span class="line">     *</span><br><span class="line">     * @param insurancePolicyDTO</span><br><span class="line">     * @param insurancePolicyCorrectRecordDO</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    InsurancePolicyDTO setInsurancePolicyDTOWhenCorrect(InsurancePolicyDTO insurancePolicyDTO, InsurancePolicyCorrectRecordDO insurancePolicyCorrectRecordDO);</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 退保时增加相关字段</span><br><span class="line">     *</span><br><span class="line">     * @param insurancePolicyDTO</span><br><span class="line">     * @param insurancePolicyReturnRecordDO</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    InsurancePolicyDTO setInsurancePolicyDTOWhenReturn(InsurancePolicyDTO insurancePolicyDTO, InsurancePolicyReturnRecordDO insurancePolicyReturnRecordDO);</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 过户时增加相关字段</span><br><span class="line">     *</span><br><span class="line">     * @param insurancePolicyDTO</span><br><span class="line">     * @param insurancePolicyTransferRecordDO</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    InsurancePolicyDTO setInsurancePolicyDTOWhenTransfer(InsurancePolicyDTO insurancePolicyDTO, InsurancePolicyTransferRecordDO insurancePolicyTransferRecordDO);</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 更新时增加相关字段</span><br><span class="line">     *</span><br><span class="line">     * @param insurancePolicyDTO</span><br><span class="line">     * @param insurancePolicyDO</span><br><span class="line">     * @param recordId</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    InsurancePolicyDTO setInsurancePolicyDTOWhenUpdate(InsurancePolicyDTO insurancePolicyDTO, InsurancePolicyDO insurancePolicyDO, Integer recordId, Integer updateType);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+<!--add if show donate area-->
+
+    
+    
+
+
+
+
+
+
+    
+<div class="card">
+    
         <div class="card-image">
             <a href="/2019/11/11/go_away/" class="image
             is-7by1">
@@ -214,7 +261,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        1
+                        2
                     </p>
                 </div>
             </div>
@@ -331,8 +378,27 @@
             <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            最新文章
+            阅读推荐
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/11/11/test/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="test">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-11T07:52:19.000Z">2019-11-11</time></div>
+                    <a href="/2019/11/11/test/" class="title has-link-black-ter is-size-6 has-text-weight-normal">test</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -370,7 +436,7 @@
                     <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -407,8 +473,27 @@
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            最新文章
+            阅读推荐
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/11/11/test/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="test">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-11T07:52:19.000Z">2019-11-11</time></div>
+                    <a href="/2019/11/11/test/" class="title has-link-black-ter is-size-6 has-text-weight-normal">test</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -446,7 +531,7 @@
                     <span class="level-item">十一月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -611,69 +696,35 @@ document.addEventListener('DOMContentLoaded', function () {
 <script src="/js/main.js" defer></script>
 
     
-    <link rel="stylesheet" href="/css/search.css">
-<div class="searchbox google-cse-search">
-    <div class="searchbox-container">
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input" placeholder="想要查找什么..." />
-            <span class="searchbox-close searchbox-selectable"><i class="fa fa-times-circle"></i></span>
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
-        
-        <div class="searchbox-result-wrapper">
-            <gcse:searchresults-only></gcse:searchresults-only>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
         </div>
-        
     </div>
-    
-    <script>
-        (function() {
-            var cx = '015401540157838789351';
-            var gcse = document.createElement('script');
-            gcse.type = 'text/javascript';
-            gcse.async = true;
-            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(gcse, s);
-        })();
-    </script>
-    
 </div>
 <script>
-    (function (document, $) {
-        function debounce(func, wait, immediate) {
-            var timeout;
-            return function() {
-                var context = this, args = arguments;
-                var later = function() {
-                    timeout = null;
-                    if (!immediate) func.apply(context, args);
-                };
-                var callNow = immediate && !timeout;
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-                if (callNow) func.apply(context, args);
-            };
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
         };
-
-        $(document).on('click', '.navbar-main .search', function () {
-            $('.searchbox').toggleClass('show');
-        }).on('click', '.searchbox .searchbox-mask', function () {
-            $('.searchbox').removeClass('show');
-        }).on('click', '.searchbox-close', function () {
-            $('.searchbox').removeClass('show');
-        }).on('keydown', '.searchbox-input', debounce(function () {
-            var value = $(this).val();
-            try {
-                var element = google.search.cse.element.getElement('searchresults-only0');
-                if (value.trim() === '') {
-                    element.clearAllResults();
-                } else {
-                    element.execute(value);
-                }
-            } catch (e) {}
-        }, 300));
-    })(document, jQuery);
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
 </script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
     
 </body>
 </html>
