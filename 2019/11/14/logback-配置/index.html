@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>logback 配置 | Sonder Tara</title>
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="/assets/logo.svg">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.10.22/css/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post half'>
+      
+        
+  <img class='logo' src='/assets/logo.svg'/>
+
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <input type="text" class="input u-search-input" placeholder="" />
+      <i class="icon fas fa-search fa-fw"></i>
+    </form>
+  </div>
+
+<div class='menu navgation'>
+  <ul class='h-list'>
+    
+      
+        <li>
+          <a class="nav home" href="/"
+            
+            
+            id="home">
+            <i class='fas fa-rss fa-fw'></i>&nbsp;首页
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/projects/"
+            
+            
+            id="projects">
+            <i class='fas fa-code-branch fa-fw'></i>&nbsp;项目
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/friends/"
+            
+              rel="nofollow"
+            
+            
+            id="friends">
+            <i class='fas fa-link fa-fw'></i>&nbsp;友链
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/about/"
+            
+              rel="nofollow"
+            
+            
+            id="about">
+            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+      
+    </cover>
+    <header class="l_header ">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class=""></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          Sonder Tara
+        
+      </a>
+			<div class='menu navgation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/"
+                  
+                  
+                  id="home">
+									<i class='fas fa-grin fa-fw'></i>&nbsp;首页
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/categories/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogcategories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/tags/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogtags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/archives/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogarchives">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)' target="_blank" rel="noopener"></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)' target="_blank" rel="noopener"></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)' target="_blank" rel="noopener"></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)' target="_blank" rel="noopener"></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/"
+                
+                
+                id="home">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/blog/archives/"
+                
+                  rel="nofollow"
+                
+                
+                id="blogarchives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/projects/"
+                
+                
+                id="projects">
+								<i class='fas fa-code-branch fa-fw'></i>&nbsp;开源项目
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/friends/"
+                
+                  rel="nofollow"
+                
+                
+                id="friends">
+								<i class='fas fa-link fa-fw'></i>&nbsp;我的友链
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="https://xaoxuu.com/wiki/material-x/"
+                
+                  rel="nofollow"
+                
+                
+                id="https:xaoxuu.comwikimaterial-x">
+								<i class='fas fa-book fa-fw'></i>&nbsp;主题文档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/about/"
+                
+                  rel="nofollow"
+                
+                
+                id="about">
+								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/2019/11/14/logback-%E9%85%8D%E7%BD%AE/">
+        logback 配置
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="http://blog.sondertara.com" rel="nofollow">
+        
+          <img src="assets/logo.svg">
+        
+        <p>sonder tara</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-11-14</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <h3 id="配置样例"><a href="#配置样例" class="headerlink" title="配置样例"></a>配置样例</h3><h4 id="第一种"><a href="#第一种" class="headerlink" title="第一种"></a>第一种</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line"></span><br><span class="line">    &lt;property name=&quot;server_name&quot; value=&quot;operation&quot; /&gt;</span><br><span class="line">    &lt;property name=&quot;log_dir&quot; value=&quot;/data/logs/operation-service&quot; /&gt;</span><br><span class="line">    &lt;property name=&quot;maxFileSize&quot; value=&quot;50MB&quot; /&gt;</span><br><span class="line">    &lt;property name=&quot;maxHistory&quot; value=&quot;180&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 控制台输出 --&gt;</span><br><span class="line">    &lt;appender name=&quot;STDOUT&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;</span><br><span class="line">        &lt;encoder class=&quot;ch.qos.logback.classic.encoder.PatternLayoutEncoder&quot;&gt;</span><br><span class="line">            &lt;!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符--&gt;</span><br><span class="line">            &lt;pattern&gt;%date&#123;yyyy-MM-dd HH:mm:ss&#125; | %highlight(%-5level) | %boldYellow(%thread) | %boldGreen(%logger) | %msg%n&lt;/pattern&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- info日志 appender  --&gt;</span><br><span class="line">    &lt;appender name=&quot;INFO&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;</span><br><span class="line">        &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;</span><br><span class="line">            &lt;!-- 按天回滚 daily --&gt;</span><br><span class="line">            &lt;fileNamePattern&gt;$&#123;log_dir&#125;/$&#123;server_name&#125;-info-%d&#123;yyyy-MM-dd&#125;-%i.log&lt;/fileNamePattern&gt;</span><br><span class="line">            &lt;!-- 日志最大的历史 180天 --&gt;</span><br><span class="line">            &lt;maxHistory&gt;$&#123;maxHistory&#125;&lt;/maxHistory&gt;</span><br><span class="line">            &lt;timeBasedFileNamingAndTriggeringPolicy class=&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP&quot;&gt;</span><br><span class="line">                &lt;!-- maxFileSize:这是活动文件的大小，默认值是10MB，这里设置为50MB --&gt;</span><br><span class="line">                &lt;maxFileSize&gt;$&#123;maxFileSize&#125;&lt;/maxFileSize&gt;</span><br><span class="line">            &lt;/timeBasedFileNamingAndTriggeringPolicy&gt;</span><br><span class="line">        &lt;/rollingPolicy&gt;</span><br><span class="line">        &lt;encoder class=&quot;ch.qos.logback.classic.encoder.PatternLayoutEncoder&quot;&gt;</span><br><span class="line">            &lt;!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符--&gt;</span><br><span class="line">            &lt;pattern&gt;%date&#123;yyyy-MM-dd HH:mm:ss&#125; | %highlight(%-5level) | %boldYellow(%thread) | %boldGreen(%logger) | %msg%n&lt;/pattern&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line">        &lt;filter class=&quot;ch.qos.logback.classic.filter.LevelFilter&quot;&gt;</span><br><span class="line">            &lt;!-- 只打印info日志 --&gt;</span><br><span class="line">            &lt;level&gt;INFO&lt;/level&gt;</span><br><span class="line">            &lt;onMatch&gt;ACCEPT&lt;/onMatch&gt;</span><br><span class="line">            &lt;onMismatch&gt;DENY&lt;/onMismatch&gt;</span><br><span class="line">        &lt;/filter&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 出错日志 appender  --&gt;</span><br><span class="line">    &lt;appender name=&quot;ERROR&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;</span><br><span class="line">        &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;</span><br><span class="line">            &lt;!-- 按天回滚 daily --&gt;</span><br><span class="line">            &lt;fileNamePattern&gt;$&#123;log_dir&#125;/$&#123;server_name&#125;-error-%d&#123;yyyy-MM-dd&#125;-%i.log&lt;/fileNamePattern&gt;</span><br><span class="line">            &lt;!-- 日志最大的历史 180天 --&gt;</span><br><span class="line">            &lt;maxHistory&gt;$&#123;maxHistory&#125;&lt;/maxHistory&gt;</span><br><span class="line">            &lt;timeBasedFileNamingAndTriggeringPolicy class=&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP&quot;&gt;</span><br><span class="line">                &lt;!-- maxFileSize:这是活动文件的大小，默认值是10MB，这里设置为50MB --&gt;</span><br><span class="line">                &lt;maxFileSize&gt;$&#123;maxFileSize&#125;&lt;/maxFileSize&gt;</span><br><span class="line">            &lt;/timeBasedFileNamingAndTriggeringPolicy&gt;</span><br><span class="line">        &lt;/rollingPolicy&gt;</span><br><span class="line">        &lt;encoder class=&quot;ch.qos.logback.classic.encoder.PatternLayoutEncoder&quot;&gt;</span><br><span class="line">            &lt;!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符--&gt;</span><br><span class="line">            &lt;pattern&gt;%date&#123;yyyy-MM-dd HH:mm:ss&#125; | %highlight(%-5level) | %boldYellow(%thread) | %boldGreen(%logger) | %msg%n&lt;/pattern&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line">        &lt;filter class=&quot;ch.qos.logback.classic.filter.LevelFilter&quot;&gt;</span><br><span class="line">            &lt;!-- 只打印错误日志 --&gt;</span><br><span class="line">            &lt;level&gt;ERROR&lt;/level&gt;</span><br><span class="line">            &lt;onMatch&gt;ACCEPT&lt;/onMatch&gt;</span><br><span class="line">            &lt;onMismatch&gt;DENY&lt;/onMismatch&gt;</span><br><span class="line">        &lt;/filter&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--mybatis sql日志 日志的级别需要是DEBUG--&gt;</span><br><span class="line">    &lt;!--日志打印的包的范围，及分类日志文件存储 --&gt;</span><br><span class="line">    &lt;logger name=&quot;com.chelizi.cloud.*.dao&quot; level=&quot;DEBUG&quot; additivity=&quot;false&quot;&gt;&lt;/logger&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--控制台和日志文件输出级别--&gt;</span><br><span class="line">    &lt;root level=&quot;INFO&quot; additivity = &quot;false&quot;&gt;</span><br><span class="line">        &lt;appender-ref ref=&quot;STDOUT&quot; /&gt;</span><br><span class="line">        &lt;appender-ref ref=&quot;INFO&quot; /&gt;</span><br><span class="line">        &lt;appender-ref ref=&quot;ERROR&quot; /&gt;</span><br><span class="line">    &lt;/root&gt;</span><br><span class="line"></span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="第二种"><a href="#第二种" class="headerlink" title="第二种"></a>第二种</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!--</span><br><span class="line">-scan:当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true</span><br><span class="line">-scanPeriod:设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。</span><br><span class="line">-           当scan为true时，此属性生效。默认的时间间隔为1分钟</span><br><span class="line">-debug:当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。</span><br><span class="line">-</span><br><span class="line">- configuration 子节点为 appender、logger、root</span><br><span class="line">--&gt;</span><br><span class="line">&lt;configuration scan=&quot;true&quot; scanPeriod=&quot;60 second&quot; debug=&quot;false&quot;&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;!-- 负责写日志,控制台日志 --&gt;</span><br><span class="line">    &lt;appender name=&quot;STDOUT&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;</span><br><span class="line"> </span><br><span class="line">        &lt;!-- 一是把日志信息转换成字节数组,二是把字节数组写入到输出流 --&gt;</span><br><span class="line">        &lt;encoder&gt;</span><br><span class="line">            &lt;Pattern&gt;[%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125;] [%5level] [%thread] %logger&#123;0&#125; %msg%n&lt;/Pattern&gt;</span><br><span class="line">            &lt;charset&gt;UTF-8&lt;/charset&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;!-- 文件日志 --&gt;</span><br><span class="line">    &lt;appender name=&quot;DEBUG&quot; class=&quot;ch.qos.logback.core.FileAppender&quot;&gt;</span><br><span class="line">        &lt;file&gt;debug.log&lt;/file&gt;</span><br><span class="line">        &lt;!-- append: true,日志被追加到文件结尾; false,清空现存文件;默认是true --&gt;</span><br><span class="line">        &lt;append&gt;true&lt;/append&gt;</span><br><span class="line">        &lt;filter class=&quot;ch.qos.logback.classic.filter.LevelFilter&quot;&gt;</span><br><span class="line">            &lt;!-- LevelFilter: 级别过滤器，根据日志级别进行过滤 --&gt;</span><br><span class="line">            &lt;level&gt;DEBUG&lt;/level&gt;</span><br><span class="line">            &lt;onMatch&gt;ACCEPT&lt;/onMatch&gt;</span><br><span class="line">            &lt;onMismatch&gt;DENY&lt;/onMismatch&gt;</span><br><span class="line">        &lt;/filter&gt;</span><br><span class="line">        &lt;encoder&gt;</span><br><span class="line">            &lt;Pattern&gt;[%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125;] [%5level] [%thread] %logger&#123;0&#125; %msg%n&lt;/Pattern&gt;</span><br><span class="line">            &lt;charset&gt;UTF-8&lt;/charset&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;!-- 滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将日志记录到其他文件 --&gt;</span><br><span class="line">    &lt;appender name=&quot;INFO&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;</span><br><span class="line">        &lt;File&gt;info.log&lt;/File&gt;</span><br><span class="line"> </span><br><span class="line">        &lt;!-- ThresholdFilter:临界值过滤器，过滤掉 TRACE 和 DEBUG 级别的日志 --&gt;</span><br><span class="line">        &lt;filter class=&quot;ch.qos.logback.classic.filter.ThresholdFilter&quot;&gt;</span><br><span class="line">            &lt;level&gt;INFO&lt;/level&gt;</span><br><span class="line">        &lt;/filter&gt;</span><br><span class="line"> </span><br><span class="line">        &lt;encoder&gt;</span><br><span class="line">            &lt;Pattern&gt;[%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125;] [%5level] [%thread] %logger&#123;0&#125; %msg%n&lt;/Pattern&gt;</span><br><span class="line">            &lt;charset&gt;UTF-8&lt;/charset&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line"> </span><br><span class="line">        &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;</span><br><span class="line">            &lt;!-- 每天生成一个日志文件，保存30天的日志文件</span><br><span class="line">            - 如果隔一段时间没有输出日志，前面过期的日志不会被删除，只有再重新打印日志的时候，会触发删除过期日志的操作。</span><br><span class="line">            --&gt;</span><br><span class="line">            &lt;fileNamePattern&gt;info.%d&#123;yyyy-MM-dd&#125;.log&lt;/fileNamePattern&gt;</span><br><span class="line">            &lt;maxHistory&gt;30&lt;/maxHistory&gt;</span><br><span class="line">            &lt;TimeBasedFileNamingAndTriggeringPolicy class=&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP&quot;&gt;</span><br><span class="line">                &lt;maxFileSize&gt;100MB&lt;/maxFileSize&gt;</span><br><span class="line">            &lt;/TimeBasedFileNamingAndTriggeringPolicy&gt;</span><br><span class="line">        &lt;/rollingPolicy&gt;</span><br><span class="line">    &lt;/appender &gt;</span><br><span class="line"> </span><br><span class="line">    &lt;!--&lt;!– 异常日志输出 –&gt;--&gt;</span><br><span class="line">    &lt;!--&lt;appender name=&quot;EXCEPTION&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;--&gt;</span><br><span class="line">        &lt;!--&lt;file&gt;exception.log&lt;/file&gt;--&gt;</span><br><span class="line">        &lt;!--&lt;!– 求值过滤器，评估、鉴别日志是否符合指定条件. 需要额外的两个JAR包，commons-compiler.jar和janino.jar –&gt;--&gt;</span><br><span class="line">        &lt;!--&lt;filter class=&quot;ch.qos.logback.core.filter.EvaluatorFilter&quot;&gt;--&gt;</span><br><span class="line">            &lt;!--&lt;!– 默认为 ch.qos.logback.classic.boolex.JaninoEventEvaluator –&gt;--&gt;</span><br><span class="line">            &lt;!--&lt;evaluator&gt;--&gt;</span><br><span class="line">                &lt;!--&lt;!– 过滤掉所有日志消息中不包含&quot;Exception&quot;字符串的日志 –&gt;--&gt;</span><br><span class="line">                &lt;!--&lt;expression&gt;return message.contains(&quot;Exception&quot;);&lt;/expression&gt;--&gt;</span><br><span class="line">            &lt;!--&lt;/evaluator&gt;--&gt;</span><br><span class="line">            &lt;!--&lt;OnMatch&gt;ACCEPT&lt;/OnMatch&gt;--&gt;</span><br><span class="line">            &lt;!--&lt;OnMismatch&gt;DENY&lt;/OnMismatch&gt;--&gt;</span><br><span class="line">        &lt;!--&lt;/filter&gt;--&gt;</span><br><span class="line"> </span><br><span class="line">        &lt;!--&lt;triggeringPolicy class=&quot;ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy&quot;&gt;--&gt;</span><br><span class="line">            &lt;!--&lt;!– 触发节点，按固定文件大小生成，超过5M，生成新的日志文件 –&gt;--&gt;</span><br><span class="line">            &lt;!--&lt;maxFileSize&gt;5MB&lt;/maxFileSize&gt;--&gt;</span><br><span class="line">        &lt;!--&lt;/triggeringPolicy&gt;--&gt;</span><br><span class="line">    &lt;!--&lt;/appender&gt;--&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;appender name=&quot;ERROR&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;</span><br><span class="line">        &lt;file&gt;error.log&lt;/file&gt;</span><br><span class="line"> </span><br><span class="line">        &lt;encoder&gt;</span><br><span class="line">            &lt;Pattern&gt;[%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125;] [%5level] [%thread] %logger&#123;0&#125; %msg%n&lt;/Pattern&gt;</span><br><span class="line">            &lt;charset&gt;UTF-8&lt;/charset&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line"> </span><br><span class="line">        &lt;!-- 按照固定窗口模式生成日志文件，当文件大于20MB时，生成新的日志文件。</span><br><span class="line">        -    窗口大小是1到3，当保存了3个归档文件后，将覆盖最早的日志。</span><br><span class="line">        -    可以指定文件压缩选项</span><br><span class="line">        --&gt;</span><br><span class="line">        &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.FixedWindowRollingPolicy&quot;&gt;</span><br><span class="line">            &lt;fileNamePattern&gt;error.%d&#123;yyyy-MM&#125;(%i).log.zip&lt;/fileNamePattern&gt;</span><br><span class="line">            &lt;minIndex&gt;1&lt;/minIndex&gt;</span><br><span class="line">            &lt;maxIndex&gt;3&lt;/maxIndex&gt;</span><br><span class="line">            &lt;timeBasedFileNamingAndTriggeringPolicy class=&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP&quot;&gt;</span><br><span class="line">                &lt;maxFileSize&gt;100MB&lt;/maxFileSize&gt;</span><br><span class="line">            &lt;/timeBasedFileNamingAndTriggeringPolicy&gt;</span><br><span class="line">            &lt;maxHistory&gt;30&lt;/maxHistory&gt;</span><br><span class="line">        &lt;/rollingPolicy&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;!-- 异步输出 --&gt;</span><br><span class="line">    &lt;appender name =&quot;ASYNC&quot; class= &quot;ch.qos.logback.classic.AsyncAppender&quot;&gt;</span><br><span class="line">        &lt;!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 --&gt;</span><br><span class="line">        &lt;discardingThreshold &gt;0&lt;/discardingThreshold&gt;</span><br><span class="line">        &lt;!-- 更改默认的队列的深度,该值会影响性能.默认值为256 --&gt;</span><br><span class="line">        &lt;queueSize&gt;512&lt;/queueSize&gt;</span><br><span class="line">        &lt;!-- 添加附加的appender,最多只能添加一个 --&gt;</span><br><span class="line">        &lt;appender-ref ref =&quot;ERROR&quot;/&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;!--</span><br><span class="line">    - 1.name：包名或类名，用来指定受此logger约束的某一个包或者具体的某一个类</span><br><span class="line">    - 2.未设置打印级别，所以继承他的上级&lt;root&gt;的日志级别“DEBUG”</span><br><span class="line">    - 3.未设置additivity，默认为true，将此logger的打印信息向上级传递；</span><br><span class="line">    - 4.未设置appender，此logger本身不打印任何信息，级别为“DEBUG”及大于“DEBUG”的日志信息传递给root，</span><br><span class="line">    -  root接到下级传递的信息，交给已经配置好的名为“STDOUT”的appender处理，“STDOUT”appender将信息打印到控制台；</span><br><span class="line">    --&gt;</span><br><span class="line">    &lt;logger name=&quot;ch.qos.logback&quot; /&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;!--</span><br><span class="line">    - 1.将级别为“INFO”及大于“INFO”的日志信息交给此logger指定的名为“STDOUT”的appender处理，在控制台中打出日志，</span><br><span class="line">    -   不再向次logger的上级 &lt;logger name=&quot;logback&quot;/&gt; 传递打印信息</span><br><span class="line">    - 2.level：设置打印级别（TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF），还有一个特殊值INHERITED或者同义词NULL，代表强制执行上级的级别。</span><br><span class="line">    -        如果未设置此属性，那么当前logger将会继承上级的级别。</span><br><span class="line">    - 3.additivity：为false，表示此logger的打印信息不再向上级传递,如果设置为true，会打印两次</span><br><span class="line">    - 4.appender-ref：指定了名字为&quot;STDOUT&quot;的appender。</span><br><span class="line">    --&gt;</span><br><span class="line">    &lt;logger name=&quot;com.weizhi.common.LogMain&quot; level=&quot;INFO&quot; additivity=&quot;false&quot;&gt;</span><br><span class="line">        &lt;appender-ref ref=&quot;STDOUT&quot;/&gt;</span><br><span class="line">        &lt;!--&lt;appender-ref ref=&quot;DEBUG&quot;/&gt;--&gt;</span><br><span class="line">        &lt;!--&lt;appender-ref ref=&quot;EXCEPTION&quot;/&gt;--&gt;</span><br><span class="line">        &lt;!--&lt;appender-ref ref=&quot;INFO&quot;/&gt;--&gt;</span><br><span class="line">        &lt;!--&lt;appender-ref ref=&quot;ERROR&quot;/&gt;--&gt;</span><br><span class="line">        &lt;appender-ref ref=&quot;ASYNC&quot;/&gt;</span><br><span class="line">    &lt;/logger&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;!--</span><br><span class="line">    - 根logger</span><br><span class="line">    - level:设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，不能设置为INHERITED或者同义词NULL。</span><br><span class="line">    -       默认是DEBUG。</span><br><span class="line">    -appender-ref:可以包含零个或多个&lt;appender-ref&gt;元素，标识这个appender将会添加到这个logger</span><br><span class="line">    --&gt;</span><br><span class="line">    &lt;root level=&quot;DEBUG&quot;&gt;</span><br><span class="line">        &lt;appender-ref ref=&quot;STDOUT&quot;/&gt;</span><br><span class="line">        &lt;!--&lt;appender-ref ref=&quot;DEBUG&quot;/&gt;--&gt;</span><br><span class="line">        &lt;!--&lt;appender-ref ref=&quot;EXCEPTION&quot;/&gt;--&gt;</span><br><span class="line">        &lt;!--&lt;appender-ref ref=&quot;INFO&quot;/&gt;--&gt;</span><br><span class="line">        &lt;appender-ref ref=&quot;ASYNC&quot;/&gt;</span><br><span class="line">    &lt;/root&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="第三种"><a href="#第三种" class="headerlink" title="第三种"></a>第三种</h4><p>dev 开发环境配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!-- 不分级别同步文件日志输出配置 --&gt;</span><br><span class="line">&lt;!-- 级别从高到低 OFF 、 FATAL 、 ERROR 、 WARN 、 INFO 、 DEBUG 、 TRACE 、 ALL --&gt;</span><br><span class="line">&lt;!-- 日志输出规则 根据当前ROOT 级别，日志输出时，级别高于root默认的级别时 会输出 --&gt;</span><br><span class="line">&lt;!-- 以下 每个配置的 filter 是过滤掉输出文件里面，会出现高级别文件，依然出现低级别的日志信息，通过filter 过滤只记录本级别的日志 --&gt;</span><br><span class="line">&lt;!-- scan 当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。 --&gt;</span><br><span class="line">&lt;!-- scanPeriod 设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟。 --&gt;</span><br><span class="line">&lt;!-- debug 当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。 --&gt;</span><br><span class="line">&lt;configuration scan=&quot;true&quot; scanPeriod=&quot;60 seconds&quot; debug=&quot;false&quot; &gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- logback项目名称 --&gt;</span><br><span class="line">    &lt;property name=&quot;appName&quot; value=&quot;noSeatBeltDev&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 日志级别 --&gt;</span><br><span class="line">    &lt;property name=&quot;logLevel&quot; value=&quot;DEBUG&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 日志地址 --&gt;</span><br><span class="line">    &lt;property name=&quot;logPath&quot; value=&quot;./logs&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 最大保存时间 10天 --&gt;</span><br><span class="line">    &lt;property name=&quot;maxHistory&quot; value=&quot;10&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 异步缓冲队列的深度,该值会影响性能.默认值为256 --&gt;</span><br><span class="line">    &lt;property name=&quot;queueSize&quot; value=&quot;512&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- lOGGER  PATTERN  配置化输出语句 根据自己的喜好选择 --&gt;</span><br><span class="line">    &lt;property name=&quot;logPattern&quot; value=&quot;%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; [%-5level] %logger - %msg%n&quot;/&gt;</span><br><span class="line">    &lt;!-- %d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; [%-5level] %logger - %msg%n --&gt;</span><br><span class="line">    &lt;!-- %d&#123;yyyy-MM-dd HH:mm:ss&#125; %-4relative [%thread] %-5level %logger&#123;35&#125; - %msg %n --&gt;</span><br><span class="line">    &lt;!-- [ %-5level] [%date&#123;yyyy-MM-dd HH:mm:ss.SSS&#125;] %logger&#123;96&#125; [%line] [%thread]- %msg%n  --&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;!-- 控制台打印日志的相关配置 --&gt;</span><br><span class="line">    &lt;appender name=&quot;STDOUT&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;</span><br><span class="line">        &lt;!-- 日志格式 --&gt;</span><br><span class="line">        &lt;encoder&gt;</span><br><span class="line">            &lt;charset&gt;UTF-8&lt;/charset&gt;</span><br><span class="line">            &lt;pattern&gt;$&#123;logPattern&#125;&lt;/pattern&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 文件保存日志的相关配置 --&gt;</span><br><span class="line">    &lt;appender name=&quot;FILE&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;</span><br><span class="line">        &lt;!-- 保存日志文件的路径 --&gt;</span><br><span class="line">        &lt;file&gt;$&#123;logPath&#125;/$&#123;appName&#125;.log&lt;/file&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 日志格式 --&gt;</span><br><span class="line">        &lt;encoder&gt;</span><br><span class="line">            &lt;pattern&gt;$&#123;logPattern&#125;&lt;/pattern&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line">        &lt;filter class=&quot;ch.qos.logback.classic.filter.LevelFilter&quot;&gt;</span><br><span class="line">            &lt;level&gt;$&#123;logLevel&#125;&lt;/level&gt;</span><br><span class="line">            &lt;onMatch&gt;ACCEPT&lt;/onMatch&gt;</span><br><span class="line">            &lt;onMismatch&gt;DENY&lt;/onMismatch&gt;</span><br><span class="line">        &lt;/filter&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 循环政策：基于时间创建日志文件 --&gt;</span><br><span class="line">        &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;</span><br><span class="line">            &lt;!-- 日志文件名格式 --&gt;</span><br><span class="line">            &lt;fileNamePattern&gt;$&#123;logPath&#125;/$&#123;appName&#125;-%d&#123;yyyy-MM-dd&#125;.log&lt;/fileNamePattern&gt;</span><br><span class="line">            &lt;!-- 最大保存时间--&gt;</span><br><span class="line">            &lt;maxHistory&gt;$&#123;maxHistory&#125;&lt;/maxHistory&gt;</span><br><span class="line">        &lt;/rollingPolicy&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--配置mybatis sql 日志--&gt;</span><br><span class="line">    &lt;logger name=&quot;com.pf.org.cms.mapper&quot; level=&quot;DEBUG&quot;/&gt;</span><br><span class="line">    &lt;!-- 基于INFO处理日志：具体控制台或者文件对日志级别的处理还要看所在appender配置的filter，如果没有配置filter，则使用root配置 --&gt;</span><br><span class="line"></span><br><span class="line">    &lt;root level=&quot;$&#123;logLevel&#125;&quot;&gt;</span><br><span class="line">        &lt;appender-ref ref=&quot;STDOUT&quot; /&gt;</span><br><span class="line">        &lt;!-- 开发可以只要控制台就OK --&gt;</span><br><span class="line">        &lt;!-- &lt;appender-ref ref=&quot;FILE&quot; /&gt; --&gt;</span><br><span class="line">    &lt;/root&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<p>正式环境配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!-- 分级别异步文件日志输出配置 --&gt;</span><br><span class="line">&lt;!-- 级别从高到低 OFF 、 FATAL 、 ERROR 、 WARN 、 INFO 、 DEBUG 、 TRACE 、 ALL --&gt;</span><br><span class="line">&lt;!-- 日志输出规则 根据当前ROOT 级别，日志输出时，级别高于root默认的级别时 会输出 --&gt;</span><br><span class="line">&lt;!-- 以下 每个配置的 filter 是过滤掉输出文件里面，会出现高级别文件，依然出现低级别的日志信息，通过filter 过滤只记录本级别的日志 --&gt;</span><br><span class="line">&lt;!-- scan 当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。 --&gt;</span><br><span class="line">&lt;!-- scanPeriod 设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟。 --&gt;</span><br><span class="line">&lt;!-- debug 当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。 --&gt;</span><br><span class="line">&lt;configuration scan=&quot;true&quot; scanPeriod=&quot;60 seconds&quot; debug=&quot;false&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- logback项目名称 --&gt;</span><br><span class="line">    &lt;property name=&quot;appName&quot; value=&quot;noSeatBeltProd&quot;&gt;&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 日志级别 DEBUGER INFO WARN ERROR --&gt;</span><br><span class="line">    &lt;property name=&quot;logLevel&quot; value=&quot;INFO&quot;&gt;&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 日志路径--&gt;</span><br><span class="line">    &lt;property name=&quot;logPath&quot; value=&quot;./logs&quot;&gt;&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 最大保存时间 30天--&gt;</span><br><span class="line">    &lt;property name=&quot;maxHistory&quot; value=&quot;3&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 异步缓冲队列的深度,该值会影响性能.默认值为256 --&gt;</span><br><span class="line">    &lt;property name=&quot;queueSize&quot; value=&quot;256&quot;&gt;&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- lOGGER  PATTERN 根据个人喜好选择匹配  --&gt;</span><br><span class="line">    &lt;property name=&quot;logPattern&quot; value=&quot;[ %-5level] [%date&#123;yyyy-MM-dd HH:mm:ss.SSS&#125;] %logger&#123;96&#125; [%line] [%thread]- %msg%n&quot;&gt;&lt;/property&gt;</span><br><span class="line">    &lt;!-- %d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; [%-5level] %logger - %msg%n --&gt;</span><br><span class="line">    &lt;!-- %d&#123;yyyy-MM-dd HH:mm:ss&#125; %-4relative [%thread] %-5level %logger&#123;35&#125; - %msg %n --&gt;</span><br><span class="line">    &lt;!-- [ %-5level] [%date&#123;yyyy-MM-dd HH:mm:ss.SSS&#125;] %logger&#123;96&#125; [%line] [%thread]- %msg%n  --&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 动态日志级别 --&gt;</span><br><span class="line">    &lt;jmxConfigurator/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 控制台的标准输出 --&gt;</span><br><span class="line">    &lt;appender name=&quot;STDOUT&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;</span><br><span class="line">        &lt;encoder&gt;</span><br><span class="line">            &lt;charset&gt;UTF-8&lt;/charset&gt;</span><br><span class="line">            &lt;pattern&gt;$&#123;logPattern&#125;&lt;/pattern&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- DUBUG 日志记录  --&gt;</span><br><span class="line">    &lt;appender name=&quot;FILE_DEBUG&quot;  class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;</span><br><span class="line">        &lt;filter class=&quot;ch.qos.logback.classic.filter.LevelFilter&quot;&gt;</span><br><span class="line">            &lt;level&gt;DEBUG&lt;/level&gt;</span><br><span class="line">            &lt;onMatch&gt;ACCEPT&lt;/onMatch&gt;</span><br><span class="line">            &lt;onMismatch&gt;DENY&lt;/onMismatch&gt;</span><br><span class="line">        &lt;/filter&gt;</span><br><span class="line">        &lt;file&gt;$&#123;logPath&#125;/$&#123;appName&#125;_debug.log&lt;/file&gt;</span><br><span class="line">        &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;</span><br><span class="line">            &lt;fileNamePattern&gt;$&#123;logPath&#125;/debug/$&#123;appName&#125;_debug.log.%d&#123;yyyy-MM-dd&#125;.zip</span><br><span class="line">            &lt;/fileNamePattern&gt;</span><br><span class="line">            &lt;maxHistory&gt;$&#123;maxHistory&#125;&lt;/maxHistory&gt;</span><br><span class="line">        &lt;/rollingPolicy&gt;</span><br><span class="line">        &lt;encoder&gt;</span><br><span class="line">            &lt;pattern&gt;$&#123;logPattern&#125;&lt;/pattern&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- INFO 级别的日志记录  --&gt;</span><br><span class="line">    &lt;appender name=&quot;FILE_INFO&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;</span><br><span class="line">        &lt;filter class=&quot;ch.qos.logback.classic.filter.LevelFilter&quot;&gt;</span><br><span class="line">            &lt;level&gt;INFO&lt;/level&gt;</span><br><span class="line">            &lt;onMatch&gt;ACCEPT&lt;/onMatch&gt;</span><br><span class="line">            &lt;onMismatch&gt;DENY&lt;/onMismatch&gt;</span><br><span class="line">        &lt;/filter&gt;</span><br><span class="line">        &lt;file&gt;$&#123;logPath&#125;/$&#123;appName&#125;_info.log&lt;/file&gt;</span><br><span class="line">        &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;</span><br><span class="line">            &lt;fileNamePattern&gt;$&#123;logPath&#125;/info/$&#123;appName&#125;_info.log.%d&#123;yyyy-MM-dd&#125;.zip</span><br><span class="line">            &lt;/fileNamePattern&gt;</span><br><span class="line">            &lt;maxHistory&gt;$&#123;maxHistory&#125;&lt;/maxHistory&gt;</span><br><span class="line">        &lt;/rollingPolicy&gt;</span><br><span class="line">        &lt;encoder&gt;</span><br><span class="line">            &lt;pattern&gt;$&#123;logPattern&#125;&lt;/pattern&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--  WARN 级别的日志记录 --&gt;</span><br><span class="line">    &lt;appender name=&quot;FILE_WARN&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;</span><br><span class="line">        &lt;filter class=&quot;ch.qos.logback.classic.filter.LevelFilter&quot;&gt;</span><br><span class="line">            &lt;level&gt;WARN&lt;/level&gt;</span><br><span class="line">            &lt;onMatch&gt;ACCEPT&lt;/onMatch&gt;</span><br><span class="line">            &lt;onMismatch&gt;DENY&lt;/onMismatch&gt;</span><br><span class="line">        &lt;/filter&gt;</span><br><span class="line">        &lt;file&gt;$&#123;logPath&#125;/$&#123;appName&#125;_warn.log&lt;/file&gt;</span><br><span class="line">        &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;</span><br><span class="line">            &lt;fileNamePattern&gt;$&#123;logPath&#125;/warn/$&#123;appName&#125;_warn.log.%d&#123;yyyy-MM-dd&#125;.zip</span><br><span class="line">            &lt;/fileNamePattern&gt;</span><br><span class="line">            &lt;maxHistory&gt;$&#123;maxHistory&#125;&lt;/maxHistory&gt;</span><br><span class="line">        &lt;/rollingPolicy&gt;</span><br><span class="line">        &lt;encoder&gt;</span><br><span class="line">            &lt;pattern&gt;$&#123;logPattern&#125;&lt;/pattern&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Error 级别的日志记录 --&gt;</span><br><span class="line">    &lt;appender name=&quot;FILE_ERROR&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;</span><br><span class="line">        &lt;filter class=&quot;ch.qos.logback.classic.filter.LevelFilter&quot;&gt;</span><br><span class="line">            &lt;level&gt;ERROR&lt;/level&gt;</span><br><span class="line">            &lt;onMatch&gt;ACCEPT&lt;/onMatch&gt;</span><br><span class="line">            &lt;onMismatch&gt;DENY&lt;/onMismatch&gt;</span><br><span class="line">        &lt;/filter&gt;</span><br><span class="line">        &lt;file&gt;$&#123;logPath&#125;/$&#123;appName&#125;_error.log&lt;/file&gt;</span><br><span class="line">        &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;</span><br><span class="line">            &lt;fileNamePattern&gt;$&#123;logPath&#125;/error/$&#123;appName&#125;_error.log.%d&#123;yyyy-MM-dd&#125;.zip</span><br><span class="line">            &lt;/fileNamePattern&gt;</span><br><span class="line">            &lt;maxHistory&gt;$&#123;maxHistory&#125;&lt;/maxHistory&gt;</span><br><span class="line">        &lt;/rollingPolicy&gt;</span><br><span class="line">        &lt;encoder&gt;</span><br><span class="line">            &lt;pattern&gt;$&#123;logPattern&#125;&lt;/pattern&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- ASYNC_LOG_DEBUG  --&gt;</span><br><span class="line">    &lt;appender name=&quot;ASYNC_LOG_DEBUG&quot; class=&quot;ch.qos.logback.classic.AsyncAppender&quot;&gt;</span><br><span class="line">        &lt;!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 --&gt;</span><br><span class="line">        &lt;discardingThreshold&gt;0&lt;/discardingThreshold&gt;</span><br><span class="line">        &lt;!-- 更改默认的队列的深度,该值会影响性能.默认值为256 --&gt;</span><br><span class="line">        &lt;queueSize&gt;$&#123;queueSize&#125;&lt;/queueSize&gt;</span><br><span class="line">        &lt;appender-ref ref=&quot;FILE_DEBUG&quot;/&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- ASYNC_LOG_INFO --&gt;</span><br><span class="line">    &lt;appender name=&quot;ASYNC_LOG_INFO&quot; class=&quot;ch.qos.logback.classic.AsyncAppender&quot;&gt;</span><br><span class="line">        &lt;!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 --&gt;</span><br><span class="line">        &lt;discardingThreshold&gt;0&lt;/discardingThreshold&gt;</span><br><span class="line">        &lt;!-- 更改默认的队列的深度,该值会影响性能.默认值为256 --&gt;</span><br><span class="line">        &lt;queueSize&gt;$&#123;queueSize&#125;&lt;/queueSize&gt;</span><br><span class="line">        &lt;appender-ref ref=&quot;FILE_INFO&quot;/&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- ASYNC_LOG_WARN --&gt;</span><br><span class="line">    &lt;appender name=&quot;ASYNC_LOG_WARN&quot; class=&quot;ch.qos.logback.classic.AsyncAppender&quot;&gt;</span><br><span class="line">        &lt;!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 --&gt;</span><br><span class="line">        &lt;discardingThreshold&gt;0&lt;/discardingThreshold&gt;</span><br><span class="line">        &lt;!-- 更改默认的队列的深度,该值会影响性能.默认值为256 --&gt;</span><br><span class="line">        &lt;queueSize&gt;$&#123;queueSize&#125;&lt;/queueSize&gt;</span><br><span class="line">        &lt;appender-ref ref=&quot;FILE_WARN&quot;/&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--ASYNC_LOG_ERROR  --&gt;</span><br><span class="line">    &lt;appender name=&quot;ASYNC_LOG_ERROR&quot; class=&quot;ch.qos.logback.classic.AsyncAppender&quot;&gt;</span><br><span class="line">        &lt;!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 --&gt;</span><br><span class="line">        &lt;discardingThreshold&gt;0&lt;/discardingThreshold&gt;</span><br><span class="line">        &lt;!-- 更改默认的队列的深度,该值会影响性能.默认值为256 --&gt;</span><br><span class="line">        &lt;queueSize&gt;$&#123;queueSize&#125;&lt;/queueSize&gt;</span><br><span class="line">        &lt;appender-ref ref=&quot;FILE_ERROR&quot;/&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 日志的记录级别 --&gt;</span><br><span class="line">    &lt;!-- 在定义后引用APPENDER --&gt;</span><br><span class="line">    &lt;root level=&quot;$&#123;logLevel&#125;&quot;&gt;</span><br><span class="line">        &lt;!--  控制台  --&gt;</span><br><span class="line">        &lt;appender-ref ref=&quot;STDOUT&quot;/&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 具体的日志级别和文件的配置 --&gt;</span><br><span class="line">        &lt;appender-ref ref=&quot;ASYNC_LOG_DEBUG&quot;/&gt;</span><br><span class="line">        &lt;appender-ref ref=&quot;ASYNC_LOG_INFO&quot;/&gt;</span><br><span class="line">        &lt;appender-ref ref=&quot;ASYNC_LOG_WARN&quot;/&gt;</span><br><span class="line">        &lt;appender-ref ref=&quot;ASYNC_LOG_ERROR&quot;/&gt;</span><br><span class="line">    &lt;/root&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+      </div>
+      
+        <br>
+        
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-11-14T14:14:49+08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>更新于 2019年11月14日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>java</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.sondertara.com/2019/11/14/logback-%E9%85%8D%E7%BD%AE/&title=logback 配置 | Sonder Tara&pics=assets/logo.svg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://blog.sondertara.com/2019/11/14/logback-%E9%85%8D%E7%BD%AE/&title=logback 配置 | Sonder Tara&pics=assets/logo.svg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://blog.sondertara.com/2019/11/14/logback-%E9%85%8D%E7%BD%AE/&title=logback 配置 | Sonder Tara&pics=assets/logo.svg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+      
+      
+          <div class="prev-next">
+              
+              
+                  <section class="next">
+                      <span class="art-item-right" aria-hidden="true">
+                          <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                          <h4>
+                              <a href="/2019/11/11/test/" rel="prev" title="test">
+                                  
+                                      test
+                                  
+                              </a>
+                          </h4>
+                          
+                      </span>
+                  </section>
+              
+          </div>
+      
+    </section>
+  </article>
+
+
+
+  <!-- 显示推荐文章和评论 -->
+
+
+
+  
+
+
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'logback 配置',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+      
+        
+          
+          
+            
+              <section class='widget author'>
+  <div class='content '>
+    
+      <div class='avatar'>
+        <img class='avatar' src='/assets/logo.svg'/>
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="/mailto:me@xaoxuu.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/xaoxuu"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=63035382"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget toc-wrapper'>
+    
+<header class=''>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;本文目录</div>
+  
+    <!-- <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer noopener" href="javascript:void(0)" target="_blank"><i class="fas fa-thumbtack fa-fw"></i></a></div> -->
+  
+</header>
+
+    <div class='content '>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置样例"><span class="toc-text">配置样例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一种"><span class="toc-text">第一种</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二种"><span class="toc-text">第二种</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三种"><span class="toc-text">第三种</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget grid'>
+  
+<header class=''>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class='content '>
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/" href="/"
+          
+          
+          id="home">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="/blog/archives/" href="/blog/archives/"
+          
+            rel="nofollow"
+          
+          
+          id="blogarchives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/projects/" href="/projects/"
+          
+          
+          id="projects">
+          
+            <i class="fas fa-code-branch fa-fw" aria-hidden="true"></i>
+          
+          开源项目
+        </a></li>
+      
+        <li><a class="flat-box" title="/friends/" href="/friends/"
+          
+            rel="nofollow"
+          
+          
+          id="friends">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          我的友链
+        </a></li>
+      
+        <li><a class="flat-box" title="/about/" href="/about/"
+          
+            rel="nofollow"
+          
+          
+          id="about">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于小站
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget category'>
+    
+<header class=''>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章分类</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/blog/categories/"
+    title="blog/categories/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content '>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/Dev/" href="/categories/Dev/"><div class='name'>Dev</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/Dev/Hexo/" href="/categories/Dev/Hexo/"><div class='name'>Hexo</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/Dev/Shell-Scripts/" href="/categories/Dev/Shell-Scripts/"><div class='name'>Shell Scripts</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E6%95%99%E7%A8%8B/" href="/categories/%E6%95%99%E7%A8%8B/"><div class='name'>教程</div><div class='badge'>(9)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget tagcloud'>
+    
+<header class=''>
+  <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/blog/tags/"
+    title="blog/tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content '>
+      <a href="/tags/Hexo/" style="font-size: 24px; color: #555">Hexo</a> <a href="/tags/java/" style="font-size: 14px; color: #999">java</a> <a href="/tags/shell/" style="font-size: 24px; color: #555">shell</a> <a href="/tags/ss/" style="font-size: 14px; color: #999">ss</a> <a href="/tags/tips/" style="font-size: 14px; color: #999">tips</a>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget list'>
+  
+<header class=''>
+  <div><i class="fas fa-thumbs-up fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;强烈推荐</div>
+  
+</header>
+
+  <div class='content '>
+    <ul class="entry">
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/hexo.sh/" href="https://xaoxuu.com/wiki/hexo.sh/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Hexo脚本（Mac）
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/vim-cn.sh/" href="https://xaoxuu.com/wiki/vim-cn.sh/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;图床脚本（Mac）
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://yasuotu.com" href="https://yasuotu.com"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;图片在线压缩
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://realfavicongenerator.net" href="https://realfavicongenerator.net"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;生成Favicon
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://mxclub.github.io/resume/" href="https://mxclub.github.io/resume/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;简历主题
+          </div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+    
+
+  
+</aside>
+
+<footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="/atom.xml"
+            class="social fas fa-rss flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="/mailto:me@xaoxuu.com"
+            class="social fas fa-envelope flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/xaoxuu"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=63035382"
+            class="social fas fa-headphones-alt flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>
+    本站使用
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    作为主题
+    
+      ，
+      总访问量为
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      次
+    
+    。
+  </div>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)' target="_blank" rel="noopener"></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://img.vim-cn.com/29/91197b04c13f512f734a76d4ac422d89dbe229.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["https://img.vim-cn.com/29/91197b04c13f512f734a76d4ac422d89dbe229.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.9/js/app.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.9/js/search.js"></script>
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "复制成功";
+  let COPY_FAILURE = "复制失败";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>复制</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
